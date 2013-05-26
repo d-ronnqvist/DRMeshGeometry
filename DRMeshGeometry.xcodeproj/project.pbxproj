@@ -16,6 +16,8 @@
 		6F12F6A51752484300511602 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F12F6A41752484300511602 /* SceneKit.framework */; };
 		6F12F6A71752484800511602 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F12F6A61752484800511602 /* QuartzCore.framework */; };
 		6F12F6AA1752487C00511602 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F12F6A91752487C00511602 /* GraphView.m */; };
+		6F12F6AD17524A3D00511602 /* DRMeshGeometryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F12F6AC17524A3D00511602 /* DRMeshGeometryBuilder.m */; };
+		6F12F6AF175284A700511602 /* defaultGridTexture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6F12F6AE175284A700511602 /* defaultGridTexture.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,9 @@
 		6F12F6A61752484800511602 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6F12F6A81752487C00511602 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
 		6F12F6A91752487C00511602 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
+		6F12F6AB17524A3D00511602 /* DRMeshGeometryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRMeshGeometryBuilder.h; sourceTree = "<group>"; };
+		6F12F6AC17524A3D00511602 /* DRMeshGeometryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRMeshGeometryBuilder.m; sourceTree = "<group>"; };
+		6F12F6AE175284A700511602 /* defaultGridTexture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultGridTexture.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +102,9 @@
 				6F12F69A1752483700511602 /* AppDelegate.m */,
 				6F12F6A81752487C00511602 /* GraphView.h */,
 				6F12F6A91752487C00511602 /* GraphView.m */,
+				6F12F6AE175284A700511602 /* defaultGridTexture.jpg */,
+				6F12F6AB17524A3D00511602 /* DRMeshGeometryBuilder.h */,
+				6F12F6AC17524A3D00511602 /* DRMeshGeometryBuilder.m */,
 				6F12F69C1752483700511602 /* MainMenu.xib */,
 				6F12F68E1752483700511602 /* Supporting Files */,
 			);
@@ -169,6 +177,7 @@
 				6F12F6921752483700511602 /* InfoPlist.strings in Resources */,
 				6F12F6981752483700511602 /* Credits.rtf in Resources */,
 				6F12F69E1752483700511602 /* MainMenu.xib in Resources */,
+				6F12F6AF175284A700511602 /* defaultGridTexture.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +191,7 @@
 				6F12F6941752483700511602 /* main.m in Sources */,
 				6F12F69B1752483700511602 /* AppDelegate.m in Sources */,
 				6F12F6AA1752487C00511602 /* GraphView.m in Sources */,
+				6F12F6AD17524A3D00511602 /* DRMeshGeometryBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
