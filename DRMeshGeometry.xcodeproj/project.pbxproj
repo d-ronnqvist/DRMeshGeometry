@@ -13,6 +13,9 @@
 		6F12F6981752483700511602 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6F12F6961752483700511602 /* Credits.rtf */; };
 		6F12F69B1752483700511602 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F12F69A1752483700511602 /* AppDelegate.m */; };
 		6F12F69E1752483700511602 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F12F69C1752483700511602 /* MainMenu.xib */; };
+		6F12F6A51752484300511602 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F12F6A41752484300511602 /* SceneKit.framework */; };
+		6F12F6A71752484800511602 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F12F6A61752484800511602 /* QuartzCore.framework */; };
+		6F12F6AA1752487C00511602 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F12F6A91752487C00511602 /* GraphView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,10 @@
 		6F12F6991752483700511602 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6F12F69A1752483700511602 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6F12F69D1752483700511602 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		6F12F6A41752484300511602 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		6F12F6A61752484800511602 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6F12F6A81752487C00511602 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
+		6F12F6A91752487C00511602 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F12F6A71752484800511602 /* QuartzCore.framework in Frameworks */,
+				6F12F6A51752484300511602 /* SceneKit.framework in Frameworks */,
 				6F12F6881752483700511602 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,6 +72,8 @@
 		6F12F6861752483700511602 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6F12F6A61752484800511602 /* QuartzCore.framework */,
+				6F12F6A41752484300511602 /* SceneKit.framework */,
 				6F12F6871752483700511602 /* Cocoa.framework */,
 				6F12F6891752483700511602 /* Other Frameworks */,
 			);
@@ -84,6 +95,8 @@
 			children = (
 				6F12F6991752483700511602 /* AppDelegate.h */,
 				6F12F69A1752483700511602 /* AppDelegate.m */,
+				6F12F6A81752487C00511602 /* GraphView.h */,
+				6F12F6A91752487C00511602 /* GraphView.m */,
 				6F12F69C1752483700511602 /* MainMenu.xib */,
 				6F12F68E1752483700511602 /* Supporting Files */,
 			);
@@ -168,6 +181,7 @@
 			files = (
 				6F12F6941752483700511602 /* main.m in Sources */,
 				6F12F69B1752483700511602 /* AppDelegate.m in Sources */,
+				6F12F6AA1752487C00511602 /* GraphView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
