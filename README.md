@@ -26,4 +26,4 @@ Once the geometry is generated it can be shaded using any light and material jus
  * Only supports continous geometry. 
  * Only cartesian coordinate systems (x,y,z).
  
-If you need these additions or find a bug, please file an issue.
+If you need these additions or find a bug, please [file an issue](https://github.com/d-ronnqvist/DRMeshGeometry/issues).
