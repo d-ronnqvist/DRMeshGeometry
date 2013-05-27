@@ -3,7 +3,7 @@ DRMeshGeometry
 
 DRMeshGeometryBuilder is a builder of static mesh geometry that makes it really easy to do 3D graphs in SceneKit.
 
-
+![An example rendering of a mesh](example.png)
 
 The above geometry was generated with this code (available in the sampe project)
 
