@@ -24,37 +24,72 @@
 #import <Foundation/Foundation.h>
 #import <SceneKit/SceneKit.h>
 
+/**
+ * A range from a minimum value to a maximum value
+ */
 typedef struct {
     CGFloat min;
     CGFloat max;
 } DRMeshRange;
 
+/** 
+ * A positive count with the x and z values 
+ */
 typedef struct {
     NSUInteger x;
     NSUInteger z;
 } DRMeshCount;
 
-// Think of it as: y(x,z)
+/**
+ * Mesh function
+ * -------------
+ * The function:  y(x,z)  in a cartesian coordinate system
+ */
 typedef CGFloat(^DRMeshFunction)(CGFloat x, CGFloat z);
 
+
+/**
+ * @class DRMeshGeometryBuilder
+ * 
+ * Creates a mesh geometry for a range of x,z values using
+ * a DRMeshFunction to calculate the y value for each point.
+ */
 @interface DRMeshGeometryBuilder : NSObject
 
-// Repeat from -1 to 1
+/**
+ * The x range & z range
+ */
 @property (assign) DRMeshRange xRange;
 @property (assign) DRMeshRange zRange;
 
-//@property (copy) DRMeshFunction valueFunction;
+/**
+ * The number of times the texture repeat for x & z.
+ * (Default is 1 for both directions)
+ */
+@property (assign) DRMeshCount numberOfTextureRepeats;
 
-// 1 x 1  = texture spans the corners
-@property (assign) DRMeshCount numberOfTextureRepeats; 
-
-// 100 x 100 by default 
+/**
+ * The number of sub elements for x & z.
+ * (Default is 100 for both directions)
+ */
 @property (assign) DRMeshCount numberOfStepsPerAxis;
 
+/**
+ * @method geometryWithFunction:
+ * @param function  The function used to calculate the y(x,z)
+ *
+ * Generates a new geometry object for the configured ranges
+ * and the function passed as the argument.
+ *
+ * The geometry comes with a basic material.
+ */
 - (SCNGeometry *)geometryWithFunction:(DRMeshFunction)function;
 
 @end
 
+/**
+ * Creates a DRMeshRange between min and max.
+ */
 NS_INLINE DRMeshRange DRMeshRangeMake(CGFloat min, CGFloat max) {
     DRMeshRange r;
     r.min = min;
@@ -62,6 +97,9 @@ NS_INLINE DRMeshRange DRMeshRangeMake(CGFloat min, CGFloat max) {
     return r;
 }
 
+/**
+ * Creates a DRMeshCount for x and z.
+ */
 NS_INLINE DRMeshCount DRMeshCountMake(NSUInteger x, NSUInteger z) {
     DRMeshCount c;
     c.x = x;
