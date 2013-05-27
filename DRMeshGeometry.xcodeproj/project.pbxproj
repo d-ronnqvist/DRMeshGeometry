@@ -57,6 +57,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F1138111753C67700392309 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6F12F6AE175284A700511602 /* defaultGridTexture.jpg */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		6F1138121753C68000392309 /* Geometry builder */ = {
+			isa = PBXGroup;
+			children = (
+				6F12F6AB17524A3D00511602 /* DRMeshGeometryBuilder.h */,
+				6F12F6AC17524A3D00511602 /* DRMeshGeometryBuilder.m */,
+			);
+			name = "Geometry builder";
+			sourceTree = "<group>";
+		};
+		6F1138131753C68E00392309 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6F12F6A81752487C00511602 /* GraphView.h */,
+				6F12F6A91752487C00511602 /* GraphView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		6F12F67B1752483700511602 = {
 			isa = PBXGroup;
 			children = (
@@ -100,12 +126,10 @@
 			children = (
 				6F12F6991752483700511602 /* AppDelegate.h */,
 				6F12F69A1752483700511602 /* AppDelegate.m */,
-				6F12F6A81752487C00511602 /* GraphView.h */,
-				6F12F6A91752487C00511602 /* GraphView.m */,
-				6F12F6AE175284A700511602 /* defaultGridTexture.jpg */,
-				6F12F6AB17524A3D00511602 /* DRMeshGeometryBuilder.h */,
-				6F12F6AC17524A3D00511602 /* DRMeshGeometryBuilder.m */,
+				6F1138131753C68E00392309 /* View */,
+				6F1138121753C68000392309 /* Geometry builder */,
 				6F12F69C1752483700511602 /* MainMenu.xib */,
+				6F1138111753C67700392309 /* Resources */,
 				6F12F68E1752483700511602 /* Supporting Files */,
 			);
 			path = DRMeshGeometry;
@@ -327,6 +351,7 @@
 				6F12F6A31752483700511602 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
