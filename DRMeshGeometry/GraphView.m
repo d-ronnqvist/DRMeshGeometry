@@ -65,34 +65,41 @@
     
     [scene.rootNode addChildNode:cameraNode];
 	
+    
+    
     // Two soft directional lights
-    // ------------
-    // The spot light is positioned right next to the camera
-    //    // so it is offset sligthly and added to the camera node
-    SCNLight *dirLight = [SCNLight light];
-    dirLight.type = SCNLightTypeDirectional;
-    dirLight.color = [NSColor colorWithCalibratedWhite:0.5 alpha:1.0];
-	SCNNode *dirLightNode = [SCNNode node];
-	dirLightNode.light = dirLight;
+    // ---------------------------
+    // To create a nice lighting effect that both lights the surface
+    // and causes it to be shaded on the areas facing away from the
+    // camera two directional lights are used: one facing down and
+    // the other having the default (down along z tilt).
+    // Since the object is lit by both lights they are not as strong.
+    SCNLight *directionDownLight = [SCNLight light];
+    directionDownLight.type = SCNLightTypeDirectional;
+    directionDownLight.color = [NSColor colorWithCalibratedWhite:0.5 alpha:1.0];
+	SCNNode *directionDownLightNode = [SCNNode node];
+	directionDownLightNode.light = directionDownLight;
     
-   dirLightNode.transform = CATransform3DRotate(dirLightNode.transform, -M_PI_2, 1, 0, 0);
+    directionDownLightNode.transform = CATransform3DRotate(directionDownLightNode.transform, -M_PI_2, 1, 0, 0);
     
     
-    SCNLight *dirLight2 = [SCNLight light];
-    dirLight2.type = SCNLightTypeDirectional;
-    dirLight2.color = [NSColor colorWithCalibratedWhite:0.5 alpha:1.0];
-	SCNNode *dirLight2Node = [SCNNode node];
-	dirLight2Node.light = dirLight2;
+    SCNLight *directionForwardLight = [SCNLight light];
+    directionForwardLight.type = SCNLightTypeDirectional;
+    directionForwardLight.color = [NSColor colorWithCalibratedWhite:0.5 alpha:1.0];
+	SCNNode *directionForwardLightNode = [SCNNode node];
+	directionForwardLightNode.light = directionForwardLight;
 
-    [scene.rootNode addChildNode:dirLight2Node];
-    
-    [scene.rootNode addChildNode:dirLightNode];
+    [scene.rootNode addChildNode:directionDownLightNode];
+    [scene.rootNode addChildNode:directionForwardLightNode];
     
 
     
     
     // Creating the geometry
-    
+    // ---------------------
+    // The geoemetry builder is used to generate a geometry of a
+    // sine(x)-cos(z) curve (that looks like rounded hills).
+    // The x and z ranges of the mesh are customized.
     DRMeshGeometryBuilder *builder = [[DRMeshGeometryBuilder alloc] init];
     builder.numberOfTextureRepeats = DRMeshCountMake(10, 10);
     builder.xRange = DRMeshRangeMake(-20.0, 20.0);
@@ -103,13 +110,12 @@
     }];
     
     
-    // Customizing it further with a texture
-    
+    // Customizing the mesh appearance with a texture
     sine.firstMaterial.diffuse.contents = [NSImage imageNamed:@"defaultGridTexture"];
     
     SCNNode *sineNode = [SCNNode nodeWithGeometry:sine];
-    sineNode.position = SCNVector3Make(0, 0, 0);
-    sineNode.scale = SCNVector3Make(.65, .65, .65);
+    sineNode.position = SCNVector3Make(0, 0, 0);    // Position in the center (default) 
+    sineNode.scale = SCNVector3Make(.65, .65, .65); // Scale the mesh to fit the screen.
    
     [scene.rootNode addChildNode:sineNode];
     
@@ -119,14 +125,13 @@
     
     // Rotating the mesh
     // -----------------
+    // The mesh is given a slow linear full rotation around the Y axis.
     CABasicAnimation *rotation = [CABasicAnimation animationWithKeyPath:@"rotation"];
     rotation.byValue = [NSValue valueWithSCNVector4:SCNVector4Make(0, 1, 0, M_PI*2)];
-    rotation.timingFunction =
-    [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    rotation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
     rotation.repeatCount = INFINITY;
     rotation.duration = 9.0;
    
-    
     [sineNode addAnimation:rotation forKey:nil];
 }
 
