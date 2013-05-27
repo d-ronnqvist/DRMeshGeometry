@@ -16,6 +16,11 @@ The above geometry was generated with this code (available in the sampe project)
         return 2.0 * (sinf(.4*x) - cosf(.4*z));
     }];
 
+Once the geometry is generated it can be shaded using any light and material just like normal geometry in the scene.
+
+![Another shading of a sample mesh](light.png)
+  
+
 # Known limitations 
 
  * Only supports continous geometry. 
