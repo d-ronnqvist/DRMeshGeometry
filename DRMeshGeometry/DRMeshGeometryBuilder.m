@@ -119,21 +119,24 @@
             CGFloat x = (float)col/width * (self.xRange.max - self.xRange.min) + self.xRange.min;
             CGFloat z = (float)row/depth * (self.zRange.max - self.zRange.min) + self.zRange.min;
             
-            SCNVector3 value =  SCNVector3Make(x,
-                                           function(x, z),
-                                           z);
+//            SCNVector3 value =  SCNVector3Make(x,
+//                                           function(x, z),
+//                                           z);
+            SCNVector3 value = [self vectorForFunction:function X:x Z:z];
             
             vertices[col + row*depth] = value;
             
             CGFloat delta = 0.001;
             SCNVector3 dx = vectorSubtract(value,
-                                           SCNVector3Make(x + delta,
-                                                          function(x + delta, z),
-                                                          z));
+                                           [self vectorForFunction:function X:x+delta Z:z]);
+//                                           SCNVector3Make(x + delta,
+//                                                          function(x + delta, z),
+//                                                          z));
             SCNVector3 dz = vectorSubtract(value,
-                                           SCNVector3Make(x,
-                                                          function(x, z+ delta),
-                                                          z+ delta));
+                                           [self vectorForFunction:function X:x Z:z+delta]);
+//                                           SCNVector3Make(x,
+//                                                          function(x, z+ delta),
+//                                                          z+ delta));
             
  
             normals[col + row*depth] = normalize( crossProduct(dz, dx) );
@@ -190,6 +193,14 @@
     return geometry;
 }
 
+- (SCNVector3)vectorForFunction:(DRMeshFunction)function
+                              X:(CGFloat)x
+                              Z:(CGFloat)z
+{
+    return SCNVector3Make(x,
+                          function(x, z),
+                          z);
+}
 
 #pragma mark - Vector math
 

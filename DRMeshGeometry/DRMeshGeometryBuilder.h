@@ -85,6 +85,8 @@ typedef CGFloat(^DRMeshFunction)(CGFloat x, CGFloat z);
  */
 - (SCNGeometry *)geometryWithFunction:(DRMeshFunction)function;
 
+- (SCNVector3)vectorForFunction:(DRMeshFunction)function X:(CGFloat)x Z:(CGFloat)z;
+
 @end
 
 /**
