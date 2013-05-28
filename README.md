@@ -1,4 +1,4 @@
-DRMeshGeometry V 0.1
+DRMeshGeometry v0.1
 ==============
 
 DRMeshGeometryBuilder is a builder of static mesh geometry that makes it really easy to do 3D graphs in SceneKit.
@@ -21,12 +21,11 @@ Once the geometry is generated it can be shaded using any light and material jus
 ![Another shading of a sample mesh](light.png)
 
  
-# Known limitations 
+# Known limitations
 
- * Only supports continous geometry. 
- * Only cartesian coordinate systems (x,y,z).
- 
- 
+ * Currently only supports continous geometry. 
+ * Currently only cartesian coordinate systems (x,y,z). (see **Future ideas**)
+
 If you need these additions or find a bug, please [file an issue](https://github.com/d-ronnqvist/DRMeshGeometry/issues).
 
 # Futute ideas
