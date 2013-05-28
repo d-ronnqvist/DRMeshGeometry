@@ -23,6 +23,7 @@
 
 #import "GraphView.h"
 #import "DRMeshGeometryBuilder.h"
+#import "DRCylinderMeshGeometryBuilder.h"
 
 @implementation GraphView
 
@@ -100,15 +101,27 @@
     // The geoemetry builder is used to generate a geometry of a
     // sine(x)-cos(z) curve (that looks like rounded hills).
     // The x and z ranges of the mesh are customized.
-    DRMeshGeometryBuilder *builder = [[DRMeshGeometryBuilder alloc] init];
-    builder.numberOfTextureRepeats = DRMeshCountMake(10, 10);
-    builder.xRange = DRMeshRangeMake(-20.0, 20.0);
-    builder.zRange = DRMeshRangeMake(-20.0, 20.0);
     
-    SCNGeometry *sine = [builder geometryWithFunction:^CGFloat(CGFloat x, CGFloat z) {
-        return 2.0 * (sinf(.4*x) - cosf(.4*z));
+    
+//    DRMeshGeometryBuilder *builder = [[DRMeshGeometryBuilder alloc] init];
+//    builder.numberOfTextureRepeats = DRMeshCountMake(10, 10);
+//    builder.xRange = DRMeshRangeMake(-20.0, 20.0);
+//    builder.zRange = DRMeshRangeMake(-20.0, 20.0);
+    
+//    SCNGeometry *sine = [builder geometryWithFunction:^CGFloat(CGFloat x, CGFloat z) {
+//        return 2.0 * (sinf(.4*x) - cosf(.4*z));
+//    }];
+    
+    DRCylinderMeshGeometryBuilder *cylinderBuilder = [[DRCylinderMeshGeometryBuilder alloc] init];
+    cylinderBuilder.thetaRange = DRMeshRangeMake(0, 2.0*M_PI);
+    cylinderBuilder.yRange = DRMeshRangeMake(-10.0, 10.0);
+    cylinderBuilder.numberOfTextureRepeats = DRMeshCountMake(25, 4);
+
+    
+    
+    SCNGeometry *sine = [cylinderBuilder geometryWithCylinderFunction:^CGFloat(CGFloat theta, CGFloat y) {
+        return 3.0*cosf(6.0*theta)+15.-0.5*y;
     }];
-    
     
     // Customizing the mesh appearance with a texture
     sine.firstMaterial.diffuse.contents = [NSImage imageNamed:@"defaultGridTexture"];
