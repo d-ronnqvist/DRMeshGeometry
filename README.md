@@ -1,4 +1,4 @@
-DRMeshGeometry v0.1
+DRMeshGeometry v0.2
 ==============
 
 DRMeshGeometryBuilder is a builder of static mesh geometry that makes it really easy to do 3D graphs in SceneKit.
@@ -20,16 +20,46 @@ Once the geometry is generated it can be shaded using any light and material jus
 
 ![Another shading of a sample mesh](light.png)
 
+##  Other coordinate systems
+
+There is also similar builders to construct both **cylindrical** and **spherical** meshes, as seen below.
+
+The following code generates the *cylindrical* mesh seen below
+
+    DRCylinderMeshGeometryBuilder *cylinderBuilder = [[DRCylinderMeshGeometryBuilder alloc] init];
+    cylinderBuilder.thetaRange = DRMeshRangeMake(0, 2.0*M_PI);
+    cylinderBuilder.yRange = DRMeshRangeMake(-10.0, 10.0);
+    cylinderBuilder.numberOfTextureRepeats = DRMeshCountMake(25, 4);
+    
+    SCNGeometry *sine = [cylinderBuilder geometryWithCylinderFunction:^CGFloat(CGFloat theta, CGFloat y) {
+        return 3.0*cosf(6.0*theta)+15.-0.5*y;
+    }];
+
+![An example rendering of a cylindric mesh](cylinder.png)
+
+In the same manner, this code generates the *spherical* mesh seen below
+
+     DRSphereMeshGeometryBuilder *sphereBuilder = [[DRSphereMeshGeometryBuilder alloc] init];
+    sphereBuilder.thetaRange = DRMeshRangeMake(0, M_PI);
+    sphereBuilder.psiRange   = DRMeshRangeMake(-M_PI_2, 1.25*M_PI);
+    sphereBuilder.numberOfTextureRepeats = DRMeshCountMake(6, 6);
+    
+    SCNGeometry *sine = [sphereBuilder geometryWithSphereFunction:^CGFloat(CGFloat theta, CGFloat psi) {
+        return -5.0*psi + 0.5*sinf(theta*30.0);
+    }];
+ 
+ ![An example rendering of a sphere mesh](sphere.png)
+ 
  
 # Known limitations
 
  * Currently only supports continous geometry. 
- * Currently only cartesian coordinate systems (x,y,z). (see **Future ideas**)
+ * <s>Currently only cartesian coordinate systems (x,y,z). (see **Future ideas**)</s>
 
 If you need these additions or find a bug, please [file an issue](https://github.com/d-ronnqvist/DRMeshGeometry/issues).
 
 # Future ideas
 
-I’m thinking of adding ways of constructing cylindrical geometry r(z,θ) and spherical geometry r(φ,θ) as well.
+<s>I’m thinking of adding ways of constructing cylindrical geometry r(z,θ) and spherical geometry r(φ,θ) as well.</s>
 
 I’m also thinking of making the graph view into a component with properties for showing the axis and allowing the user to pan around.
