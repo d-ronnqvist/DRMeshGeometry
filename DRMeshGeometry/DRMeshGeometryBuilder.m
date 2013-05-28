@@ -116,8 +116,8 @@
     for (int row = 0 ; row<width ; row++) {
         for (int col = 0 ; col<depth ; col++) {
   
-            CGFloat x = (float)col/width * (self.xRange.max - self.xRange.min) + self.xRange.min;
-            CGFloat z = (float)row/depth * (self.zRange.max - self.zRange.min) + self.zRange.min;
+            CGFloat x = (float)col/(width-1) * (self.xRange.max - self.xRange.min) + self.xRange.min;
+            CGFloat z = (float)row/(depth-1) * (self.zRange.max - self.zRange.min) + self.zRange.min;
             
 //            SCNVector3 value =  SCNVector3Make(x,
 //                                           function(x, z),
