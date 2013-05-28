@@ -28,7 +28,7 @@ Once the geometry is generated it can be shaded using any light and material jus
 
 If you need these additions or find a bug, please [file an issue](https://github.com/d-ronnqvist/DRMeshGeometry/issues).
 
-# Futute ideas
+# Future ideas
 
 I’m thinking of adding ways of constructing cylindrical geometry r(z,θ) and spherical geometry r(φ,θ) as well.
 
