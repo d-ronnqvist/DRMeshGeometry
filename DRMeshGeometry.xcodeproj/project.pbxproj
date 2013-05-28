@@ -18,6 +18,7 @@
 		6F12F6AA1752487C00511602 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F12F6A91752487C00511602 /* GraphView.m */; };
 		6F12F6AD17524A3D00511602 /* DRMeshGeometryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F12F6AC17524A3D00511602 /* DRMeshGeometryBuilder.m */; };
 		6F12F6AF175284A700511602 /* defaultGridTexture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6F12F6AE175284A700511602 /* defaultGridTexture.jpg */; };
+		6FE0F88B17550D9700A8951F /* DRCylinderMeshGeometryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE0F88A17550D9700A8951F /* DRCylinderMeshGeometryBuilder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		6F12F6AB17524A3D00511602 /* DRMeshGeometryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRMeshGeometryBuilder.h; sourceTree = "<group>"; };
 		6F12F6AC17524A3D00511602 /* DRMeshGeometryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRMeshGeometryBuilder.m; sourceTree = "<group>"; };
 		6F12F6AE175284A700511602 /* defaultGridTexture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultGridTexture.jpg; sourceTree = "<group>"; };
+		6FE0F88917550D9700A8951F /* DRCylinderMeshGeometryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRCylinderMeshGeometryBuilder.h; sourceTree = "<group>"; };
+		6FE0F88A17550D9700A8951F /* DRCylinderMeshGeometryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRCylinderMeshGeometryBuilder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +73,8 @@
 			children = (
 				6F12F6AB17524A3D00511602 /* DRMeshGeometryBuilder.h */,
 				6F12F6AC17524A3D00511602 /* DRMeshGeometryBuilder.m */,
+				6FE0F88917550D9700A8951F /* DRCylinderMeshGeometryBuilder.h */,
+				6FE0F88A17550D9700A8951F /* DRCylinderMeshGeometryBuilder.m */,
 			);
 			name = "Geometry builder";
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 				6F12F69B1752483700511602 /* AppDelegate.m in Sources */,
 				6F12F6AA1752487C00511602 /* GraphView.m in Sources */,
 				6F12F6AD17524A3D00511602 /* DRMeshGeometryBuilder.m in Sources */,
+				6FE0F88B17550D9700A8951F /* DRCylinderMeshGeometryBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
