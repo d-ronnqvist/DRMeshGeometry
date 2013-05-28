@@ -39,7 +39,7 @@ The following code generates the *cylindrical* mesh seen below
 
 In the same manner, this code generates the *spherical* mesh seen below
 
-     DRSphereMeshGeometryBuilder *sphereBuilder = [[DRSphereMeshGeometryBuilder alloc] init];
+    DRSphereMeshGeometryBuilder *sphereBuilder = [[DRSphereMeshGeometryBuilder alloc] init];
     sphereBuilder.thetaRange = DRMeshRangeMake(0, M_PI);
     sphereBuilder.psiRange   = DRMeshRangeMake(-M_PI_2, 1.25*M_PI);
     sphereBuilder.numberOfTextureRepeats = DRMeshCountMake(6, 6);
@@ -50,16 +50,19 @@ In the same manner, this code generates the *spherical* mesh seen below
  
  ![An example rendering of a sphere mesh](sphere.png)
  
- 
+  
 # Known limitations
 
  * Currently only supports continous geometry. 
- * <s>Currently only cartesian coordinate systems (x,y,z). (see **Future ideas**)</s>
 
-If you need these additions or find a bug, please [file an issue](https://github.com/d-ronnqvist/DRMeshGeometry/issues).
+If you need this or another addition or find a bug, please [file an issue](https://github.com/d-ronnqvist/DRMeshGeometry/issues).
 
 # Future ideas
 
-<s>I’m thinking of adding ways of constructing cylindrical geometry r(z,θ) and spherical geometry r(φ,θ) as well.</s>
-
 I’m also thinking of making the graph view into a component with properties for showing the axis and allowing the user to pan around.
+
+-----------------
+
+# New in v0.2
+
+ * Spherical and cylindrical mesh builders.
