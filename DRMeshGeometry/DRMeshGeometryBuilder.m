@@ -110,6 +110,8 @@
     }
     
     
+    // Generate the mesh by calculating the vector, normal
+    // and texture coordinate for each x,z pair.
     
     for (int row = 0 ; row<width ; row++) {
         for (int col = 0 ; col<depth ; col++) {
@@ -126,12 +128,12 @@
             CGFloat delta = 0.001;
             SCNVector3 dx = vectorSubtract(value,
                                            SCNVector3Make(x + delta,
-                                                              function(x + delta, z),
-                                                              z));
+                                                          function(x + delta, z),
+                                                          z));
             SCNVector3 dz = vectorSubtract(value,
                                            SCNVector3Make(x,
-                                                              function(x, z+ delta),
-                                                              z+ delta));
+                                                          function(x, z+ delta),
+                                                          z+ delta));
             
  
             normals[col + row*depth] = normalize( crossProduct(dz, dx) );
@@ -143,22 +145,31 @@
         }
     }
     
+    // Create geometry sources for the generated data
     
     SCNGeometrySource *vertexSource  = [SCNGeometrySource geometrySourceWithVertices:vertices           count:pointCount];
     SCNGeometrySource *normalSource  = [SCNGeometrySource geometrySourceWithNormals:normals             count:pointCount];
     SCNGeometrySource *textureSource = [SCNGeometrySource geometrySourceWithTextureCoordinates:textures count:pointCount];
     
     
-    SCNGeometryElement *element = [SCNGeometryElement geometryElementWithData:[NSData dataWithBytes:indices
-                                                                                             length:sizeof(short[numberOfIndices])]
-                                                            primitiveType:SCNGeometryPrimitiveTypeTriangleStrip
-                                                           primitiveCount:numberOfIndices
-                                                            bytesPerIndex:sizeof(short)];
+    // Configure the indices that was to be interpreted as a
+    // triangle strip using
+    
+    SCNGeometryElement *element =
+    [SCNGeometryElement geometryElementWithData:[NSData dataWithBytes:indices
+                                                               length:sizeof(short[numberOfIndices])]
+                                  primitiveType:SCNGeometryPrimitiveTypeTriangleStrip
+                                 primitiveCount:numberOfIndices
+                                  bytesPerIndex:sizeof(short)];
+    
+    // Create geometry from these sources
     
     SCNGeometry *geometry = [SCNGeometry geometryWithSources:@[vertexSource, normalSource, textureSource]
                                                 elements:@[element]];
     
-    // Since the builder exposes a geometry with repeating texture coordinates it is configured with a repeating material
+    // Since the builder exposes a geometry with repeating texture 
+    // coordinates it is configured with a repeating material
+    
     SCNMaterial *repeatingTextureMaterial = [SCNMaterial material];
     repeatingTextureMaterial.doubleSided = YES;
     
@@ -167,6 +178,8 @@
     
     repeatingTextureMaterial.ambient.wrapS = SCNRepeat;
     repeatingTextureMaterial.ambient.wrapT = SCNRepeat;
+    
+    // Possibly repeat all the materials texture coordintes here
     
     repeatingTextureMaterial.specular.contents = [NSColor colorWithCalibratedWhite:0.3 alpha:1.0];
     repeatingTextureMaterial.shininess = .1250;
