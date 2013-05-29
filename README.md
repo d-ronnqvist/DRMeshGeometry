@@ -1,4 +1,4 @@
-DRMeshGeometry v0.2
+DRMeshGeometry v0.2.1
 ==============
 
 DRMeshGeometryBuilder is a builder of static mesh geometry that makes it really easy to do 3D graphs in SceneKit.
@@ -7,14 +7,15 @@ DRMeshGeometryBuilder is a builder of static mesh geometry that makes it really 
 
 The above geometry was generated with this code (available in the sampe project)
 
-    DRMeshGeometryBuilder *builder = [[DRMeshGeometryBuilder alloc] init];
-    builder.numberOfTextureRepeats = DRMeshCountMake(10, 10);
+    DRCartesianMeshGeometryBuilder *builder = [[DRCartesianMeshGeometryBuilder alloc] init];
+    builder.textureRepeatCounts = DRMeshCountMake(10, 10);
     builder.xRange = DRMeshRangeMake(-20.0, 20.0);
     builder.zRange = DRMeshRangeMake(-20.0, 20.0);
     
-    SCNGeometry *sine = [builder geometryWithFunction:^CGFloat(CGFloat x, CGFloat z) {
+    SCNGeometry *sine = [builder geometryWithCartesianFunction:^CGFloat(CGFloat x, CGFloat z) {
         return 2.0 * (sinf(.4*x) - cosf(.4*z));
     }];
+
 
 Once the geometry is generated it can be shaded using any light and material just like normal geometry in the scene.
 
@@ -29,7 +30,7 @@ The following code generates the *cylindrical* mesh seen below
     DRCylinderMeshGeometryBuilder *cylinderBuilder = [[DRCylinderMeshGeometryBuilder alloc] init];
     cylinderBuilder.thetaRange = DRMeshRangeMake(0, 2.0*M_PI);
     cylinderBuilder.yRange = DRMeshRangeMake(-10.0, 10.0);
-    cylinderBuilder.numberOfTextureRepeats = DRMeshCountMake(25, 4);
+    cylinderBuilder.textureRepeatCounts = DRMeshCountMake(25, 4);
     
     SCNGeometry *sine = [cylinderBuilder geometryWithCylinderFunction:^CGFloat(CGFloat theta, CGFloat y) {
         return 3.0*cosf(6.0*theta)+15.-0.5*y;
@@ -42,7 +43,7 @@ In the same manner, this code generates the *spherical* mesh seen below
     DRSphereMeshGeometryBuilder *sphereBuilder = [[DRSphereMeshGeometryBuilder alloc] init];
     sphereBuilder.thetaRange = DRMeshRangeMake(0, M_PI);
     sphereBuilder.psiRange   = DRMeshRangeMake(-M_PI_2, 1.25*M_PI);
-    sphereBuilder.numberOfTextureRepeats = DRMeshCountMake(6, 6);
+    sphereBuilder.textureRepeatCounts = DRMeshCountMake(6, 6);
     
     SCNGeometry *sine = [sphereBuilder geometryWithSphereFunction:^CGFloat(CGFloat theta, CGFloat psi) {
         return -5.0*psi + 0.5*sinf(theta*30.0);
