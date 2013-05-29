@@ -18,15 +18,17 @@
     return [self geometryWithFunction:function];
 }
 
-- (SCNVector3)vectorForFunction:(DRMeshFunction)function one:(CGFloat)x two:(CGFloat)z
+- (SCNVector3)vectorForFunction:(DRMeshFunction)function
+                            one:(CGFloat)one
+                            two:(CGFloat)two
 {
-    CGFloat psi = z;
-    CGFloat theta = x;
+    CGFloat theta = one;
+    CGFloat fi = two;
     
-    CGFloat r = function(x,z);
+    CGFloat r = function(theta,fi);
     
-    return SCNVector3Make(r*sinf(theta)*cosf(psi),
-                          r*sinf(theta)*sinf(psi),
+    return SCNVector3Make(r*sinf(theta)*cosf(fi),
+                          r*sinf(theta)*sinf(fi),
                           r*cosf(theta));
 }
 

@@ -18,12 +18,14 @@
     return [self geometryWithFunction:function];
 }
 
-- (SCNVector3)vectorForFunction:(DRMeshFunction)function one:(CGFloat)x two:(CGFloat)z
+- (SCNVector3)vectorForFunction:(DRMeshFunction)function
+                            one:(CGFloat)one
+                            two:(CGFloat)two
 {
-    CGFloat y = z;
-    CGFloat theta = x;
+    CGFloat theta = one;
+    CGFloat y = two;
     
-    CGFloat r = function(x,z);
+    CGFloat r = function(theta,y);
     
     return SCNVector3Make(r*cosf(theta),
                           y,
