@@ -12,13 +12,13 @@
 
 - (SCNGeometry *)geometryWithSphereFunction:(DRSphereMeshFunction)function
 {
-    self.xRange = self.thetaRange;
-    self.zRange = self.psiRange;
+    self.rangeOne = self.thetaRange;
+    self.rangeTwo = self.psiRange;
     
     return [self geometryWithFunction:function];
 }
 
-- (SCNVector3)vectorForFunction:(DRMeshFunction)function X:(CGFloat)x Z:(CGFloat)z
+- (SCNVector3)vectorForFunction:(DRMeshFunction)function one:(CGFloat)x two:(CGFloat)z
 {
     CGFloat psi = z;
     CGFloat theta = x;

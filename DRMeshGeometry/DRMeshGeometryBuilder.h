@@ -36,8 +36,8 @@ typedef struct {
  * A positive count with the x and z values 
  */
 typedef struct {
-    NSUInteger x;
-    NSUInteger z;
+    NSUInteger one;
+    NSUInteger two;
 } DRMeshCount;
 
 /**
@@ -45,7 +45,7 @@ typedef struct {
  * -------------
  * The function:  y(x,z)  in a cartesian coordinate system
  */
-typedef CGFloat(^DRMeshFunction)(CGFloat x, CGFloat z);
+typedef CGFloat(^DRMeshFunction)(CGFloat one, CGFloat two);
 
 
 /**
@@ -59,20 +59,24 @@ typedef CGFloat(^DRMeshFunction)(CGFloat x, CGFloat z);
 /**
  * The x range & z range
  */
-@property (assign) DRMeshRange xRange;
-@property (assign) DRMeshRange zRange;
+@property (assign) DRMeshRange rangeOne;
+@property (assign) DRMeshRange rangeTwo;
 
 /**
- * The number of times the texture repeat for x & z.
+ * The number of times the texture repeat for both axis.
  * (Default is 1 for both directions)
+ *
+ * Subclasses _may_ change this to provide their own defaults.
  */
-@property (assign) DRMeshCount numberOfTextureRepeats;
+@property (assign) DRMeshCount textureRepeatCounts;
 
 /**
  * The number of sub elements for x & z.
  * (Default is 100 for both directions)
+ *
+ * Subclasses _may_ change this to provide their own defaults.
  */
-@property (assign) DRMeshCount numberOfStepsPerAxis;
+@property (assign) DRMeshCount stepsPerAxisCounts;
 
 /**
  * @method geometryWithFunction:
@@ -85,7 +89,20 @@ typedef CGFloat(^DRMeshFunction)(CGFloat x, CGFloat z);
  */
 - (SCNGeometry *)geometryWithFunction:(DRMeshFunction)function;
 
-- (SCNVector3)vectorForFunction:(DRMeshFunction)function X:(CGFloat)x Z:(CGFloat)z;
+/**
+ * @method vectorForFunction:one:two:
+ * @param one   The first parameter
+ * @param two   The second paramter
+ * @return  A vector
+ *
+ * Turns the function and it's parameters into a point
+ * in the current coordinate system.
+ *
+ * Subclasses _should_ override this.
+ */
+- (SCNVector3)vectorForFunction:(DRMeshFunction)function
+                            one:(CGFloat)one
+                            two:(CGFloat)two;
 
 @end
 
@@ -102,9 +119,9 @@ NS_INLINE DRMeshRange DRMeshRangeMake(CGFloat min, CGFloat max) {
 /**
  * Creates a DRMeshCount for x and z.
  */
-NS_INLINE DRMeshCount DRMeshCountMake(NSUInteger x, NSUInteger z) {
+NS_INLINE DRMeshCount DRMeshCountMake(NSUInteger one, NSUInteger two) {
     DRMeshCount c;
-    c.x = x;
-    c.z = z;
+    c.one = one;
+    c.two = two;
     return c;
 }

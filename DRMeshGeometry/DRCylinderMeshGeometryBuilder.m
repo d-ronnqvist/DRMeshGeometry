@@ -12,13 +12,13 @@
 
 - (SCNGeometry *)geometryWithCylinderFunction:(DRCylinderMeshFunction)function
 {
-    self.xRange = self.thetaRange;
-    self.zRange = self.yRange;
+    self.rangeOne = self.thetaRange;
+    self.rangeTwo = self.yRange;
     
     return [self geometryWithFunction:function];
 }
 
-- (SCNVector3)vectorForFunction:(DRMeshFunction)function X:(CGFloat)x Z:(CGFloat)z
+- (SCNVector3)vectorForFunction:(DRMeshFunction)function one:(CGFloat)x two:(CGFloat)z
 {
     CGFloat y = z;
     CGFloat theta = x;

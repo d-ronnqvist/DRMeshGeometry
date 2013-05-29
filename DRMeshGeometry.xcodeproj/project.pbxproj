@@ -20,6 +20,7 @@
 		6F12F6AF175284A700511602 /* defaultGridTexture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6F12F6AE175284A700511602 /* defaultGridTexture.jpg */; };
 		6FE0F88B17550D9700A8951F /* DRCylinderMeshGeometryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE0F88A17550D9700A8951F /* DRCylinderMeshGeometryBuilder.m */; };
 		6FE0F88E1755407D00A8951F /* DRSphereMeshGeometryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE0F88D1755407D00A8951F /* DRSphereMeshGeometryBuilder.m */; };
+		6FE0F8911755CD7200A8951F /* DRCartesianMeshGeometryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE0F8901755CD7200A8951F /* DRCartesianMeshGeometryBuilder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,8 @@
 		6FE0F88A17550D9700A8951F /* DRCylinderMeshGeometryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRCylinderMeshGeometryBuilder.m; sourceTree = "<group>"; };
 		6FE0F88C1755407D00A8951F /* DRSphereMeshGeometryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRSphereMeshGeometryBuilder.h; sourceTree = "<group>"; };
 		6FE0F88D1755407D00A8951F /* DRSphereMeshGeometryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRSphereMeshGeometryBuilder.m; sourceTree = "<group>"; };
+		6FE0F88F1755CD7200A8951F /* DRCartesianMeshGeometryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRCartesianMeshGeometryBuilder.h; sourceTree = "<group>"; };
+		6FE0F8901755CD7200A8951F /* DRCartesianMeshGeometryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRCartesianMeshGeometryBuilder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +79,8 @@
 			children = (
 				6F12F6AB17524A3D00511602 /* DRMeshGeometryBuilder.h */,
 				6F12F6AC17524A3D00511602 /* DRMeshGeometryBuilder.m */,
+				6FE0F88F1755CD7200A8951F /* DRCartesianMeshGeometryBuilder.h */,
+				6FE0F8901755CD7200A8951F /* DRCartesianMeshGeometryBuilder.m */,
 				6FE0F88917550D9700A8951F /* DRCylinderMeshGeometryBuilder.h */,
 				6FE0F88A17550D9700A8951F /* DRCylinderMeshGeometryBuilder.m */,
 				6FE0F88C1755407D00A8951F /* DRSphereMeshGeometryBuilder.h */,
@@ -228,6 +233,7 @@
 				6F12F6AD17524A3D00511602 /* DRMeshGeometryBuilder.m in Sources */,
 				6FE0F88B17550D9700A8951F /* DRCylinderMeshGeometryBuilder.m in Sources */,
 				6FE0F88E1755407D00A8951F /* DRSphereMeshGeometryBuilder.m in Sources */,
+				6FE0F8911755CD7200A8951F /* DRCartesianMeshGeometryBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -37,11 +37,11 @@
 {
     self = [super init];
     if (self) {
-        _xRange = DRMeshRangeMake(-1.0, 1.0);
-        _zRange = DRMeshRangeMake(-1.0, 1.0);
+        _rangeOne = DRMeshRangeMake(-1.0, 1.0);
+        _rangeTwo = DRMeshRangeMake(-1.0, 1.0);
         
-        _numberOfStepsPerAxis = DRMeshCountMake(100, 100);
-        _numberOfTextureRepeats = DRMeshCountMake(1, 1);
+        _stepsPerAxisCounts  = DRMeshCountMake(100, 100);
+        _textureRepeatCounts = DRMeshCountMake(1, 1);
 
     }
     return self;
@@ -51,8 +51,8 @@
 {
     self.function = function;
     
-    NSUInteger width = self.numberOfStepsPerAxis.x;
-    NSUInteger depth = self.numberOfStepsPerAxis.z;
+    NSUInteger width = self.stepsPerAxisCounts.one;
+    NSUInteger depth = self.stepsPerAxisCounts.two;
     
     NSUInteger pointCount = width * depth;
     
@@ -116,26 +116,26 @@
     for (int row = 0 ; row<width ; row++) {
         for (int col = 0 ; col<depth ; col++) {
   
-            CGFloat x = (float)col/(width-1) * (self.xRange.max - self.xRange.min) + self.xRange.min;
-            CGFloat z = (float)row/(depth-1) * (self.zRange.max - self.zRange.min) + self.zRange.min;
+            CGFloat one = (float)col/(width-1) * (self.rangeOne.max - self.rangeOne.min) + self.rangeOne.min;
+            CGFloat two = (float)row/(depth-1) * (self.rangeTwo.max - self.rangeTwo.min) + self.rangeTwo.min;
             
-            SCNVector3 value = [self vectorForFunction:function X:x Z:z];
+            SCNVector3 value = [self vectorForFunction:function one:one two:two];
             
             vertices[col + row*depth] = value;
             
             CGFloat delta = 0.001;
             SCNVector3 dx = vectorSubtract(value,
-                                           [self vectorForFunction:function X:x+delta Z:z]);
+                                           [self vectorForFunction:function one:one+delta two:two]);
 
             SCNVector3 dz = vectorSubtract(value,
-                                           [self vectorForFunction:function X:x Z:z+delta]);
+                                           [self vectorForFunction:function one:one two:two+delta]);
             
  
             normals[col + row*depth] = normalize( crossProduct(dz, dx) );
             
             
-            textures[col + row*depth] = CGPointMake(col/(float)width*self.numberOfTextureRepeats.x,
-                                                    row/(float)depth*self.numberOfTextureRepeats.z);
+            textures[col + row*depth] = CGPointMake(col/(float)width*self.textureRepeatCounts.one,
+                                                    row/(float)depth*self.textureRepeatCounts.two);
             
         }
     }
@@ -186,12 +186,11 @@
 }
 
 - (SCNVector3)vectorForFunction:(DRMeshFunction)function
-                              X:(CGFloat)x
-                              Z:(CGFloat)z
+                            one:(CGFloat)one
+                            two:(CGFloat)two
 {
-    return SCNVector3Make(x,
-                          function(x, z),
-                          z);
+    NSAssert(NO, @"Subclasses _should_ override this to provide a solution for their coordiante system");
+    return SCNVector3Make(0, 0, 0);
 }
 
 #pragma mark - Vector math

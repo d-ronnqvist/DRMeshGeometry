@@ -22,7 +22,7 @@
 // SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "GraphView.h"
-#import "DRMeshGeometryBuilder.h"
+#import "DRCartesianMeshGeometryBuilder.h"
 #import "DRCylinderMeshGeometryBuilder.h"
 #import "DRSphereMeshGeometryBuilder.h"
 
@@ -104,20 +104,20 @@
     // The x and z ranges of the mesh are customized.
     
     
-    DRMeshGeometryBuilder *builder = [[DRMeshGeometryBuilder alloc] init];
-    builder.numberOfTextureRepeats = DRMeshCountMake(10, 10);
+    DRCartesianMeshGeometryBuilder *builder = [[DRCartesianMeshGeometryBuilder alloc] init];
+    builder.textureRepeatCounts = DRMeshCountMake(10, 10);
     builder.xRange = DRMeshRangeMake(-20.0, 20.0);
     builder.zRange = DRMeshRangeMake(-20.0, 20.0);
     
-    SCNGeometry *sine = [builder geometryWithFunction:^CGFloat(CGFloat x, CGFloat z) {
+    SCNGeometry *sine = [builder geometryWithCartesianFunction:^CGFloat(CGFloat x, CGFloat z) {
         return 2.0 * (sinf(.4*x) - cosf(.4*z));
     }];
 
 //    DRCylinderMeshGeometryBuilder *cylinderBuilder = [[DRCylinderMeshGeometryBuilder alloc] init];
 //    cylinderBuilder.thetaRange = DRMeshRangeMake(0, 2.0*M_PI);
 //    cylinderBuilder.yRange = DRMeshRangeMake(-10.0, 10.0);
-//    cylinderBuilder.numberOfTextureRepeats = DRMeshCountMake(25, 4);
-    
+//    cylinderBuilder.textureRepeatCounts = DRMeshCountMake(25, 4);
+//    
 // SCNGeometry *sine = [cylinderBuilder geometryWithCylinderFunction:^CGFloat(CGFloat theta, CGFloat y) {
 //        return 3.0*cosf(6.0*theta)+15.-0.5*y;
 //    }];
@@ -125,7 +125,7 @@
 //    DRSphereMeshGeometryBuilder *sphereBuilder = [[DRSphereMeshGeometryBuilder alloc] init];
 //    sphereBuilder.thetaRange = DRMeshRangeMake(0, M_PI);
 //    sphereBuilder.psiRange   = DRMeshRangeMake(-M_PI_2, 1.25*M_PI);
-//    sphereBuilder.numberOfTextureRepeats = DRMeshCountMake(6, 6);
+//    sphereBuilder.textureRepeatCounts = DRMeshCountMake(6, 6);
 //    
 //    SCNGeometry *sine = [sphereBuilder geometryWithSphereFunction:^CGFloat(CGFloat theta, CGFloat psi) {
 //        return -5.0*psi + 0.5*sinf(theta*30.0);
