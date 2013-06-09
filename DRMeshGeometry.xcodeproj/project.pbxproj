@@ -18,6 +18,7 @@
 		6F12F6AA1752487C00511602 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F12F6A91752487C00511602 /* GraphView.m */; };
 		6F12F6AD17524A3D00511602 /* DRMeshGeometryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F12F6AC17524A3D00511602 /* DRMeshGeometryBuilder.m */; };
 		6F12F6AF175284A700511602 /* defaultGridTexture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6F12F6AE175284A700511602 /* defaultGridTexture.jpg */; };
+		6F890B9317652C9A00DEB4C2 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F890B9217652C9A00DEB4C2 /* GLKit.framework */; };
 		6FE0F88B17550D9700A8951F /* DRCylinderMeshGeometryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE0F88A17550D9700A8951F /* DRCylinderMeshGeometryBuilder.m */; };
 		6FE0F88E1755407D00A8951F /* DRSphereMeshGeometryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE0F88D1755407D00A8951F /* DRSphereMeshGeometryBuilder.m */; };
 		6FE0F8911755CD7200A8951F /* DRCartesianMeshGeometryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE0F8901755CD7200A8951F /* DRCartesianMeshGeometryBuilder.m */; };
@@ -44,6 +45,7 @@
 		6F12F6AB17524A3D00511602 /* DRMeshGeometryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRMeshGeometryBuilder.h; sourceTree = "<group>"; };
 		6F12F6AC17524A3D00511602 /* DRMeshGeometryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRMeshGeometryBuilder.m; sourceTree = "<group>"; };
 		6F12F6AE175284A700511602 /* defaultGridTexture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultGridTexture.jpg; sourceTree = "<group>"; };
+		6F890B9217652C9A00DEB4C2 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		6FE0F88917550D9700A8951F /* DRCylinderMeshGeometryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRCylinderMeshGeometryBuilder.h; sourceTree = "<group>"; };
 		6FE0F88A17550D9700A8951F /* DRCylinderMeshGeometryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRCylinderMeshGeometryBuilder.m; sourceTree = "<group>"; };
 		6FE0F88C1755407D00A8951F /* DRSphereMeshGeometryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRSphereMeshGeometryBuilder.h; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F890B9317652C9A00DEB4C2 /* GLKit.framework in Frameworks */,
 				6F12F6A71752484800511602 /* QuartzCore.framework in Frameworks */,
 				6F12F6A51752484300511602 /* SceneKit.framework in Frameworks */,
 				6F12F6881752483700511602 /* Cocoa.framework in Frameworks */,
@@ -118,6 +121,7 @@
 		6F12F6861752483700511602 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6F890B9217652C9A00DEB4C2 /* GLKit.framework */,
 				6F12F6A61752484800511602 /* QuartzCore.framework */,
 				6F12F6A41752484300511602 /* SceneKit.framework */,
 				6F12F6871752483700511602 /* Cocoa.framework */,
