@@ -1,4 +1,4 @@
-DRMeshGeometry v0.2.1
+DRMeshGeometry v0.3
 ==============
 
 DRMeshGeometryBuilder is a builder of static mesh geometry that makes it really easy to do 3D graphs in SceneKit.
@@ -63,6 +63,10 @@ If you need this or another addition or find a bug, please [file an issue](https
 I’m also thinking of making the graph view into a component with properties for showing the axis and allowing the user to pan around.
 
 -----------------
+
+# New in v0.3
+
+ * Two finger trackpad gestures to pan, zoom and rotate.
 
 # New in v0.2
 
