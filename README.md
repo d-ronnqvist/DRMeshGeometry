@@ -1,3 +1,5 @@
+> *Note:* this repo is not expected to be updated until at least summer 2014. There is also some new technology that I would like to use to make this project nicer and some parts of SceneKit that I have a much greater understanding of now that I would like to update. 
+
 DRMeshGeometry v0.3
 ==============
 
